@@ -6,7 +6,7 @@ cd ./tensorflow
 # press Enter on all questions excepting the following:
 # Do you wish to build TensorFlow with CUDA support? [y/N]: y
 # Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 9.0]: 10.0
-bazel build --jobs 2 --config=monolithic --copt=-Wno-sign-compare //tensorflow:libtensorflow_cc.so
+bazel build --jobs 2 --config=monolithic --copt=-mavx --copt=-mavx2 --copt=-mfma --copt=-msse4.1 --copt=-msse4.2 --copt=-Wno-sign-compare //tensorflow:libtensorflow_cc.so
 # wait... about 1 hour
 sudo mkdir /usr/local/include/tensorflow
 sudo mkdir /usr/local/include/tensorflow/third_party
